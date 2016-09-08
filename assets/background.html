@@ -6,9 +6,17 @@
 </head>
 
 <style>
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
     #myCanvas {
-        height: 100%;
-        width: 100%;
+        height: 98%;
+        width: 99%;
+        margin: 3;
+        padding: 0;
+        border: 1px solid black;
     }
 </style>
 
@@ -31,38 +39,49 @@
         var height;
         var canvasDiv;
         var gradient;
+        var position;
 
         function setup() {
 
             canvasDiv = document.getElementById("myCanvas");
             width = canvasDiv.clientWidth;
             height = canvasDiv.clientHeight;
-            canvas = createCanvas(width, height);
+            canvas = createCanvas(width+16, height);
             canvas.parent(canvasDiv);
             background(255);
 
             middle = new Middle();
             middle.x = width / 2;
-            middle.y = height * 2 / 3;
+            middle.y = height * 3 / 4;
 
             gradient = loadImage("./img/gradient.png");
+            position = 0;
         }
 
         function reviewCanavasSize() {
-            width = canvasDiv.clientWidth;
-            height = canvasDiv.clientHeight;
-            resizeCanvas(width, height)
+            width = canvasDiv.innerWidth;
+            height = canvasDiv.innerHeight;
+            resizeCanvas(width+10, height)
         }
 
         function draw() {
+            background(255);
             stroke(200)
-            for (var i = 0; i < width + density; i = i + density) {
+            for (var i = -width; i < 2*width; i = i + density) {
                 line(i, height, middle.x, middle.y);
             }
-            for (var j = height; j > middle.y; j -= density) {
+            for (var j = height; j > middle.y; j -= density/4) {
                 line(0, j, width, j);
             }
-            image(gradient, 0,middle.y, width, middle.y/4);
+            image(gradient, 0,middle.y, width, middle.y/6);
+
+            for (var i = 0; i != 10; ++i)
+            {
+              // ellipse(width*random(1),position%height,100,100);
+            }
+
+            ++position;
+
         }
 
 
