@@ -1,0 +1,79 @@
+<html>
+
+<head>
+    <title>My background</title>
+    <script src="../js/p5.min.js"></script>
+</head>
+
+<style>
+    #myCanvas {
+        height: 100%;
+        width: 100%;
+    }
+</style>
+
+
+
+<body>
+    <div id="myCanvas">
+
+    </div>
+    <script>
+        function Middle() {
+            this.x;
+            this.y;
+        }
+
+
+        var density = 40;
+        var middle;
+        var width;
+        var height;
+        var canvasDiv;
+        var gradient;
+
+        function setup() {
+
+            canvasDiv = document.getElementById("myCanvas");
+            width = canvasDiv.clientWidth;
+            height = canvasDiv.clientHeight;
+            canvas = createCanvas(width, height);
+            canvas.parent(canvasDiv);
+            background(255);
+
+            middle = new Middle();
+            middle.x = width / 2;
+            middle.y = height * 2 / 3;
+
+            gradient = loadImage("./img/gradient.png");
+        }
+
+        function reviewCanavasSize() {
+            width = canvasDiv.clientWidth;
+            height = canvasDiv.clientHeight;
+            resizeCanvas(width, height)
+        }
+
+        function draw() {
+            stroke(200)
+            for (var i = 0; i < width + density; i = i + density) {
+                line(i, height, middle.x, middle.y);
+            }
+            for (var j = height; j > middle.y; j -= density) {
+                line(0, j, width, j);
+            }
+            image(gradient, 0,middle.y, width, middle.y/4);
+        }
+
+
+            window.onresize = function(event) {
+                width = canvasDiv.clientWidth;
+                height = canvasDiv.clientHeight;
+                middle.x = width / 2;
+                middle.y = height * 2 / 3;
+                resizeCanvas(width, height);
+            }
+    </script>
+</body>
+
+</html>
