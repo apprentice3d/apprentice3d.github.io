@@ -1,8 +1,12 @@
-var three_js_101 = function(){
+/**
+ * Created by grigord on 2016-11-08.
+ */
+var three_js_102 = function(){
     var scene;
     var camera;
     var renderer;
-    var box;
+    var sphere;
+    var plane;
     setup();
     fillScene();
     animate();
@@ -12,32 +16,43 @@ var three_js_101 = function(){
         camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
         renderer = new THREE.WebGLRenderer({alpha:true});
-        var intro_place = document.getElementById("three_js_101");
+        renderer.setSize(400,200);
+
+        var intro_place = document.getElementById("three_js_102");
+        var controls = THREE.OrbitControls(camera, renderer.domElement);
         intro_place.appendChild( renderer.domElement );
         intro_place.style.marginLeft = "auto";
         intro_place.style.marginRight = "auto";
-        renderer.setSize(400,200);
+
+
 
     }
 
     function fillScene() {
         var material = new THREE.MeshBasicMaterial( { color: 0x3166bc, wireframe: true } );
 
-        var geometry = new THREE.BoxGeometry(2,2,2);
+        var geometry = new THREE.IcosahedronGeometry(20, 4);
 
-        box = new THREE.Mesh(geometry, material);
+        sphere = new THREE.Mesh(geometry, material);
 
-        scene.add(box);
+        scene.add(sphere);
 
-        camera.position.z = 6;
+
+        plane = new THREE.Mesh(new THREE.PlaneGeometry(1000,1000,100,100), new THREE.MeshBasicMaterial( { color: 0xbbbbbb, wireframe: true } ));
+        plane.rotateX(90);
+        plane.position.y = -20;
+        scene.add(plane);
+
+
+        camera.position.z = 60;
         camera.lookAt(new THREE.Vector3(0,0,0));
+
     }
 
 
     function animate() {
-        box.rotation.y += 0.01;
-        box.rotation.x += 0.01;
-        box.rotation.z += 0.01;
+        sphere.rotation.y += 0.001;
+        plane.rotation.z += 0.001;
         requestAnimationFrame( animate );
         renderer.render( scene, camera );
 
