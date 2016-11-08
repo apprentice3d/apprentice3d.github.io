@@ -2,116 +2,344 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
 
-	<title>My presentations</title>
+    <title>3D on the Web [v0.7]</title>
 
-	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-	<meta name="author" content="Denis Grigor">
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Denis Grigor">
 
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
-	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/white.css" id="theme">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css" id="theme">
 
-	<!-- For syntax highlighting -->
-	<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-	<script>
-		document.write('<link rel="stylesheet" href="css/print/' + (window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper') + '.css" type="text/css" media="print">');
-	</script>
 
-	<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
+    <!-- for three.js examples -->
+    <script src="js/three.js"></script>
+    <script src="js/OBJLoader.js"></script>
+    <script src="js/AsciiEffect.js"></script>
+    <script src="js/TrackballControls.js"></script>
+    <script src="js/Projector.js"></script>
+    <script src="js/CanvasRenderer.js"></script>
+
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write('<link rel="stylesheet" href="css/print/' + (window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper') + '.css" type="text/css" media="print">');
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
 </head>
 
 <body>
 
-	<div class="reveal">
+<div class="reveal">
 
-		<!-- Any section element inside of this container is displayed as a slide -->
-		<div class="slides">
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
 
-			<section data-background-iframe="./assets/background.html" backgroundTransition: 'slide'>
-				<h3>3D on the Web</h3>
-				<p>
-					<small>Created by <a href="http://apprentice3d.github.io/">Denis Grigor</a></small>
-				</p>
-				<small><a href="https://developer.autodesk.com/" data-preview-link>Autodesk Forge</a></small>
-			</section>
+        <section data-background-iframe="./assets/background.html" backgroundTransition:
+        'slide'>
+        <h1>3D on the Web</h1>
+        <p>
+            <small>Created by <a href="http://apprentice3d.github.io/">Denis Grigor</a></small>
+        </p>
+        <!-- <small><a href="https://developer.autodesk.com/" data-preview-link>Autodesk Forge</a></small> -->
+        <div id="intro" style="margin-left:auto;margin-right:auto;">
+            <script src="assets/scripts/intro_teapot.js"></script>
+            <script>
+                intro_teapot();
+            </script>
+        </div>
+        </section>
 
-			<section data-background-iframe="./assets/background.html" backgroundTransition: 'slide'>
+        <section data-background-iframe="./assets/background.html" backgroundTransition:
+        'slide'>
+        <h1>What is 3D?</h1>
+        <div id="ascii_logo" style="margin-left:auto;margin-right:auto;">
 
-				Another slide
-			</section>
+        </div>
+        <script src="assets/scripts/ascii_logo.js"></script>
+
+        <script>
+            temp = ascii_logo();
+        </script>
+
+        </section>
+
+
+        <section data-background-iframe="./assets/background.html" backgroundTransition:
+        'slide'>
+        <div>
+            <img src="./assets/img/no_spoon.jpg" style="width:35%;"/>
+        </div>
+
+        <h3>There is no <strike>spoon</strike> 3D on a screen</h3>
+        </section>
+
+
+        <section data-background-iframe="./assets/background.html" backgroundTransition:
+        'slide'>
+        <div>
+            <h4>An Ancient Renderer [1525]</h4>
+            <blockquote style="font-size:10px"> from Computer Graphics: Principles and Practice, Third Edition
+            </blockquote>
+            <img src="./assets/img/1525_renderer.jpg" style="width:75%;"/>
+        </div>
+        </section>
+
+        <!--MVP transformation-->
+        <section data-background-iframe="./assets/background.html" backgroundTransition:
+        'slide'>
+        <div>
+            <h4>All you see is just <strike>an illusion</strike> a projection.</h4>
+            <img src="./assets/img/screen02.png" style="width:55%;"/>
+        </div>
+        Result of a a series of transformations
+        <ul>
+            <li class="fragment">
+                from of an imagined 3D content
+            </li>
+            <li class="fragment">
+                to a 2D array of pixels
+            </li>
+        </ul>
+        </section>
+
+
+        <section data-background-iframe="./assets/background.html" backgroundTransition: 'slide'>
+        <div>
+            <h4>We could do that before?</h4>
+            <img src="./assets/img/zebra.jpg" style="width:55%;"/>
+        </div>
+        </section>
+
+        <section data-background-iframe="./assets/background.html" backgroundTransition: 'slide'>
+        <div>
+            <h4>GPU for the Web.</h4>
+            <img src="./assets/img/webgl_logo.jpg" style="width:45%; background:none; border:none; box-shadow:none;"/>
+        </div>
+        <ul>
+            <li class="fragment">
+                Based on OpenGL ES
+            </li>
+            <li class="fragment">
+                Meant for browsers
+            </li>
+        </ul>
+        </section>
+
+
+        <section data-background-iframe="./assets/background.html" backgroundTransition: 'slide'>
+            <h2><span class="fragment" data-fragment-index="6">WebGL <br />programmable</span> <br />graphics pipeline</h2>
+            <span><img class="fragment" data-fragment-index="1" src="./assets/img/vertex-shader.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img class="fragment" data-fragment-index="2" src="./assets/img/primitive-assembly.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img class="fragment" data-fragment-index="3" src="./assets/img/rasterization.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img class="fragment" data-fragment-index="4" src="./assets/img/fragment-shader.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img class="fragment" data-fragment-index="5" src="./assets/img/frame-buffer.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img class="fragment" data-fragment-index="6" src="./assets/img/programmable.png" style="margin-top:0px;background:none; border:none; box-shadow:none;"/></span>
+        </section>
 
 
 
 
 
-			<section data-background-iframe="./assets/background.html" backgroundTransition: 'slide'>
-				<h3>THE END</h3>
-				<small><h4>by Denis Grigor / <a href="http://apprentice3d.github.io">http://apprentice3d.github.io</a></small></h4>
-			</section>
+        <section data-background-iframe="./assets/background.html" backgroundTransition: 'slide'>
+        <h2><span>WebGL 101</h2>
+            <p class="fragment" data-fragment-index="1">
+                Setting up the scene with a canvas and a background
+            </p>
+        <div>
+        <div style="display: inline; float:left; overflow: hidden; width: 65%;">
+            <pre class="fragment" data-fragment-index="2" ><code class="hljs javascript">var canvas=document.getElementById('webgl_101');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-		</div>
+var gl = canvas.getContext('webgl'); // vs 2D
 
-	</div>
+// background color
+gl.clearColor(0.0, 0.4, 0.8, 1.0);
+gl.clear(gl.COLOR_BUFFER_BIT);</code></pre>
+        </div>
 
-	<script src="lib/js/head.min.js"></script>
-	<script src="js/reveal.js"></script>
+        <div style="display: inline; float:right" class="fragment" data-fragment-index="3">
+            <i>WebGL output</i>
+            <br>
+            <canvas id="webgl_101"></canvas>
+        </div>
+        </div>
+        <script src="assets/scripts/webgl_101.js"></script>
+        <script>
+            WebGLObject();
+        </script>
 
-	<script>
-		// Full list of configuration options available here:
-		// https://github.com/hakimel/reveal.js#configuration
-		Reveal.initialize({
-			controls: true,
-			progress: true,
-			history: true,
+        </section>
+        <section data-background-iframe="./assets/background.html" backgroundTransition: 'slide'>
+        What it takes to draw 3 points on the screen?
+        <pre><code class="hljs javascript">//2D points with direct screen coordinates
+var vertices = new Float32Array([
+0, 0.9,
+0.9, -0.6,
+-0.9, -0.6
+]);
+        </code></pre>
 
-			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
 
-			// Optional libraries used to extend on reveal.js
-			dependencies: [{
-				src: 'lib/js/classList.js',
-				condition: function() {
-					return !document.body.classList;
-				}
-			}, {
-				src: 'plugin/markdown/showdown.js',
-				condition: function() {
-					return !!document.querySelector('[data-markdown]');
-				}
-			}, {
-				src: 'plugin/markdown/markdown.js',
-				condition: function() {
-					return !!document.querySelector('[data-markdown]');
-				}
-			}, {
-				src: 'plugin/highlight/highlight.js',
-				async: true,
-				callback: function() {
-					hljs.initHighlightingOnLoad();
-				}
-			}, {
-				src: 'plugin/zoom-js/zoom.js',
-				async: true,
-				condition: function() {
-					return !!document.body.classList;
-				}
-			}, {
-				src: 'plugin/notes/notes.js',
-				async: true,
-				condition: function() {
-					return !!document.body.classList;
-				}
-			}]
-		});
-	</script>
+        </section>
+
+
+        <section data-background-iframe="./assets/background.html" backgroundTransition: 'slide'>
+        <div>
+        <h2>Vertex Shader</h2>
+        <pre><code class="hljs javascript">// vertex shader
+var vertexShader = gl.createShader(gl.VERTEX_SHADER);
+gl.shaderSource(vertexShader, [
+  'attribute vec2 position;', // pass in attribute
+  'void main() {', // every shader needs a main func
+    'gl_Position = vec4(position, 0.1, 1.0);', // set a position
+  '}'
+].join('\n'));
+gl.compileShader(vertexShader);</code></pre>
+        </div>
+        <div>
+            <h2>Fragment Shader</h2>
+            <pre><code class="hljs javascript">// fragment shader
+var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+gl.shaderSource(fragmentShader, [
+  'precision highp float;',
+  'uniform vec4 color;',
+  'void main() {',
+    'gl_FragColor = color;',
+  '}'
+].join('\n'));
+gl.compileShader(fragmentShader);</code></pre>
+        </div>
+        </section>
+
+        <section data-background-iframe="./assets/background.html" backgroundTransition:'slide'>
+        <p>
+            Bind the shaders together, draw vertices etc
+        </p>
+        <pre><code class="hljs javascript">var program = gl.createProgram();
+gl.attachShader(program, vertexShader);
+gl.attachShader(program, fragmentShader);
+gl.linkProgram(program);
+
+var vertices = new Float32Array([
+0, 0.9,
+0.9, -0.6,
+-0.9, -0.6
+]);
+
+var buffer = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
+
+gl.useProgram(program);
+program.color = gl.getUniformLocation(program, 'color');
+gl.uniform4fv(program.color, [0, 0, 0, 1.0]);
+
+program.position = gl.getAttribLocation(program, 'position');
+gl.enableVertexAttribArray(program.position);
+gl.vertexAttribPointer(program.position, 2, gl.FLOAT, false, 0, 0);
+
+gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 2);</code></pre>
+        </section>
+
+
+        <section data-background-iframe="./assets/background.html" backgroundTransition:'slide'>
+        <h4> Just about 100 lines of code!</h4>
+            <div>
+                <br>
+                <canvas id="webgl_102" width='400' height='400'></canvas>
+            </div>
+
+            <script src="assets/scripts/webgl_102.js"></script>
+             <script>
+                WebGLTriangle();
+             </script>
+
+        </section>
+
+        <section data-background-iframe="./assets/background.html" backgroundTransition:'slide'>
+            <h3>three.js</h3>
+        <div id="three_js_101" style="margin-left:auto;margin-right:auto;">
+
+        </div>
+        <script src="assets/scripts/three_js_101.js"></script>
+        <script>
+            three_js_101();
+        </script>
+        </section>
+
+        <section data-background-iframe="./assets/background.html" backgroundTransition:'slide'>
+        <h3>THE END</h3>
+        <small><h4>by Denis Grigor / <a href="http://apprentice3d.github.io">http://apprentice3d.github.io</a></h4></small>
+        </h4>
+        </section>
+
+    </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [{
+            src: 'lib/js/classList.js',
+            condition: function () {
+                return !document.body.classList;
+            }
+        }, {
+            src: 'plugin/markdown/showdown.js',
+            condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/markdown/markdown.js',
+            condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+        }, {
+            src: 'plugin/zoom-js/zoom.js',
+            async: true,
+            condition: function () {
+                return !!document.body.classList;
+            }
+        }, {
+            src: 'plugin/notes/notes.js',
+            async: true,
+            condition: function () {
+                return !!document.body.classList;
+            }
+        }]
+    });
+</script>
 
 </body>
 
