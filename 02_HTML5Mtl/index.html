@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>3D on the Web [v0.7]</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Denis Grigor">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+
+    <!-- for three.js examples -->
+    <script src="js/three.js"></script>
+    <script src="js/OBJLoader.js"></script>
+    <script src="js/AsciiEffect.js"></script>
+    <script src="js/TrackballControls.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/Projector.js"></script>
+    <script src="js/CanvasRenderer.js"></script>
+
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+        document.write('<link rel="stylesheet" href="css/print/' + (window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper') + '.css" type="text/css" media="print">');
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+        <section data-background-iframe="" backgroundTransition:
+        'slide'>
+        <h1>3D on the Web</h1>
+        <p>
+            <small>Created by <a href="http://apprentice3d.github.io/">Denis Grigor</a></small>
+        </p>
+        <!-- <small><a href="https://developer.autodesk.com/" data-preview-link>Autodesk Forge</a></small> -->
+        <div id="intro" style="margin-left:auto;margin-right:auto;">
+            <script src="assets/scripts/intro_teapot.js"></script>
+            <script>
+                intro_teapot();
+            </script>
+        </div>
+        </section>
+
+        <section data-background-iframe="" backgroundTransition:
+        'slide'>
+        <h1>What is 3D?</h1>
+        <div id="ascii_logo" style="margin-left:auto;margin-right:auto;">
+
+        </div>
+        <script src="assets/scripts/ascii_logo.js"></script>
+
+        <script>
+            temp = ascii_logo();
+        </script>
+
+        </section>
+
+
+        <section data-background-iframe="" backgroundTransition:
+        'slide'>
+        <div>
+            <img src="./assets/img/no_spoon.jpg" style="width:35%;"/>
+        </div>
+
+        <h3>There is no <strike>spoon</strike> 3D on a screen</h3>
+        </section>
+
+
+        <!--MVP transformation-->
+        <section data-background-iframe="" backgroundTransition:
+        'slide'>
+        <div>
+            <h4>All you see is just <strike>an illusion</strike> a projection.</h4>
+            <img src="./assets/img/screen02.png" style="width:55%;"/>
+        </div>
+        Result of a a series of transformations
+        <ul>
+            <li class="fragment">
+                from of an imagined 3D content
+            </li>
+            <li class="fragment">
+                to a 2D array of pixels
+            </li>
+        </ul>
+        </section>
+
+
+        <section data-background-iframe="" backgroundTransition:
+        'slide'>
+        <div>
+            <h4>An Ancient Renderer [1525]</h4>
+            <blockquote style="font-size:10px"> from Computer Graphics: Principles and Practice, Third Edition
+            </blockquote>
+            <img src="./assets/img/1525_renderer.jpg" style="width:75%;"/>
+        </div>
+        </section>
+
+
+
+
+        <section data-background-iframe="" backgroundTransition: 'slide'>
+        <div>
+            <h4>We could do that before?</h4>
+            <img src="./assets/img/zebra.jpg" style="width:55%;"/>
+        </div>
+        </section>
+
+        <section data-background-iframe="" backgroundTransition: 'slide'>
+        <div>
+            <h4>GPU for the Web.</h4>
+            <img src="./assets/img/webgl_logo.jpg" style="width:45%; background:none; border:none; box-shadow:none;"/>
+        </div>
+        <ul>
+            <li class="fragment">
+                Meant for browsers
+            </li>
+            <li class="fragment">
+                OpenGL ES2.0 port built into the &ltcanvas&gt DOM element
+            </li>
+
+        </ul>
+        </section>
+        <section data-background-iframe="" backgroundTransition: 'slide'>
+
+            <h4>Nicely <a href="http://webglreport.com/?v=1" target="_blank">supported </a> by (almost) all players.</h4>
+            <a href="http://caniuse.com/#feat=webgl" target="_blank"><img src="./assets/img/webgl_support.png" style="width:95%; background:none; border:none; box-shadow:none;"/></a>
+
+        </section>
+
+
+        <section data-background-iframe="" backgroundTransition: 'slide'>
+            <h2><span class="fragment" data-fragment-index="6">WebGL <br />programmable</span> <br />graphics pipeline</h2>
+            <span><img class="fragment" data-fragment-index="1" src="./assets/img/vertex-shader.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img class="fragment" data-fragment-index="2" src="./assets/img/primitive-assembly.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img class="fragment" data-fragment-index="3" src="./assets/img/rasterization.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img class="fragment" data-fragment-index="4" src="./assets/img/fragment-shader.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img class="fragment" data-fragment-index="5" src="./assets/img/frame-buffer.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img class="fragment" data-fragment-index="6" src="./assets/img/programmable.png" style="margin-top:0px;background:none; border:none; box-shadow:none;"/></span>
+        </section>
+
+
+
+
+
+        <section data-background-iframe="" backgroundTransition: 'slide'>
+        <h2><span>WebGL 101</h2>
+            <p class="fragment" data-fragment-index="1">
+                Setting up the scene with a canvas and a background
+            </p>
+        <div>
+        <div style="display: inline; float:left; overflow: hidden; width: 65%;">
+            <pre class="fragment" data-fragment-index="2" ><code class="hljs javascript">var canvas=document.getElementById('webgl_101');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+var gl = canvas.getContext('webgl'); // vs 2D
+
+// background color
+gl.clearColor(0.0, 0.4, 0.8, 1.0);
+gl.clear(gl.COLOR_BUFFER_BIT);</code></pre>
+        </div>
+
+        <div style="display: inline; float:right" class="fragment" data-fragment-index="3">
+            <i>WebGL output</i>
+            <br>
+            <canvas id="webgl_101"></canvas>
+        </div>
+        </div>
+        <script src="assets/scripts/webgl_101.js"></script>
+        <script>
+            WebGLObject();
+        </script>
+
+        </section>
+        <section data-background-iframe="" backgroundTransition: 'slide'>
+        What it takes to draw 3 points on the screen?
+        <pre><code class="hljs javascript">//2D points with direct screen coordinates
+var vertices = new Float32Array([
+0, 0.9,
+0.9, -0.6,
+-0.9, -0.6
+]);
+        </code></pre>
+
+
+        </section>
+
+
+        <section data-background-iframe="" backgroundTransition: 'slide'>
+        <div>
+        <h2>Vertex Shader</h2>
+        <pre><code class="hljs javascript">// vertex shader
+var vertexShader = gl.createShader(gl.VERTEX_SHADER);
+gl.shaderSource(vertexShader, [
+  'attribute vec2 position;', // pass in attribute
+  'void main() {', // every shader needs a main func
+    'gl_Position = vec4(position, 0.1, 1.0);', // set a position
+  '}'
+].join('\n'));
+gl.compileShader(vertexShader);</code></pre>
+        </div>
+        <div>
+            <h2>Fragment Shader</h2>
+            <pre><code class="hljs javascript">// fragment shader
+var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+gl.shaderSource(fragmentShader, [
+  'precision highp float;',
+  'uniform vec4 color;',
+  'void main() {',
+    'gl_FragColor = color;',
+  '}'
+].join('\n'));
+gl.compileShader(fragmentShader);</code></pre>
+        </div>
+        </section>
+
+        <section >
+        <p>
+            Bind the shaders together, draw vertices etc
+        </p>
+        <pre><code class="hljs javascript">var program = gl.createProgram();
+gl.attachShader(program, vertexShader);
+gl.attachShader(program, fragmentShader);
+gl.linkProgram(program);
+
+var vertices = new Float32Array([
+0, 0.9,
+0.9, -0.6,
+-0.9, -0.6
+]);
+
+var buffer = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(vertices),gl.STATIC_DRAW);
+
+gl.useProgram(program);
+program.color = gl.getUniformLocation(program, 'color');
+gl.uniform4fv(program.color, [0, 0, 0, 1.0]);
+
+program.position = gl.getAttribLocation(program, 'position');
+gl.enableVertexAttribArray(program.position);
+gl.vertexAttribPointer(program.position, 2, gl.FLOAT, false, 0, 0);
+
+gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 2);</code></pre>
+        </section>
+
+
+        <section >
+        <h4> Just 99.9 lines of code!</h4>
+            <div>
+                <br>
+                <canvas id="webgl_102" width='400' height='400'></canvas>
+            </div>
+
+            <script src="assets/scripts/webgl_102.js"></script>
+             <script>
+                WebGLTriangle();
+             </script>
+        <h4> Is it an overkill?</h4>
+
+        </section>
+
+        <section >
+            <h4><span>Remeber the programmable</a></span> <br />graphics pipeline?</h4>
+            <span><a href="https://www.shadertoy.com/view/Ms2SD1" target="_blank"><img src="./assets/img/vertex-shader-anim.gif" width="19%" style="margin-bottom:0px;background:none; box-shadow:none;"/></a></span>
+            <span><img src="./assets/img/primitive-assembly.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img src="./assets/img/rasterization.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><a href="http://pixelshaders.com/" target="_blank"><img src="./assets/img/fragment_shader.gif" width="19%" style="margin-bottom:0px;background:none; box-shadow:none;"/></a></span>
+            <span><img src="./assets/img/frame-buffer.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img src="./assets/img/programmable.png" style="margin-top:0px;background:none; border:none; box-shadow:none;"/></span>
+        </section>
+
+
+
+        <section >
+        <h4> WebGL based tools</h4>
+        <a href="https://en.wikipedia.org/wiki/List_of_WebGL_frameworks" target="_blank"><img src="./assets/img/webgl_based_libs.png" style="width:120%; background:none; border:none; box-shadow:none;"/></a>
+
+        </section>
+
+
+
+
+
+
+
+
+        <section >
+            <h3><a href="https://threejs.org/" target="_blank">three.js</a></h3>
+        <div id="three_js_101" style="margin-left:auto;margin-right:auto;">
+
+        </div>
+        <script src="assets/scripts/three_js_101.js"></script>
+        <script>
+            three_js_101();
+        </script>
+        </section>
+
+
+        <section >
+        <p>
+            Abstracts away triangles and related complexities of GL programming
+        </p>
+        <p>
+            Into actual objects and <a href="https://threejs.org/docs/index.html?q=cylinder#Reference/Geometries/CylinderGeometry" target="_blank">things in space</a>
+        </p>
+        <pre><code class="hljs javascript">var cylinder = new THREE.Mesh(
+  new THREE.CylinderGeometry( 100, 100, 200, 32 ),
+  new THREE.MeshBasicMaterial( {color: 0x2194ce} )
+);</code></pre>
+        </section>
+
+
+
+
+        <section >
+
+        <h2>Getting Started</h2>
+        <div class="col-xs-6">
+            <ul>
+                <li>scene, camera, renderer, controls</li>
+                <li class="fragment">put stuff in the scene</li>
+                <li class="fragment">animate</li>
+            </ul>
+        </div>
+        <div class="col-xs-6 fragment">
+						<pre><code class="hljs javascript">setup();
+fillScene();
+animate();</code></pre>
+        </div>
+        </section>
+
+
+        <section >
+					<pre><code class="hljs javascript">function setup(){
+scene = new THREE.Scene();
+camera = new THREE.PerspectiveCamera( 45,
+                        window.innerWidth / window.innerHeight,
+                        0.1, 1000 );
+
+renderer = new THREE.WebGLRenderer({alpha:true});
+var intro_place = document.getElementById("three_js_101");
+intro_place.appendChild( renderer.domElement );
+renderer.setSize(400,200);
+}</code></pre>
+        </section>
+
+        <section >
+        <pre><code class="hljs javascript">function fillScene() {
+var material = new THREE.MeshBasicMaterial( { color: 0x3166bc,
+                                                wireframe: true } );
+var geometry = new THREE.IcosahedronGeometry(20, 4);
+
+sphere = new THREE.Mesh(geometry, material);
+scene.add(sphere);
+
+camera.position.z = 60;
+camera.lookAt(new THREE.Vector3(0,0,0));
+}</code></pre>
+        </section>
+
+
+        <section >
+        <h2>Animate</h2>
+        <ul>
+            <li >
+                requestAnimationFrame();
+            </li>
+            <li >
+                Computer rendered animation needs to be 60fps to be seamless for human eye (contrary to 24fps for film)
+            </li>
+            <li >
+                Call <code>animate()</code> every time browser refreshes
+            </li>
+        </ul>
+        <pre><code class="hljs javascript">function animate() {
+sphere.rotation.y += 0.01;
+requestAnimationFrame( animate );
+renderer.render( scene, camera );
+}</code></pre>
+        </section>
+
+
+
+        <section >
+        <div id="three_js_102" style="margin-left:auto;margin-right:auto;">
+
+        </div>
+        <h4> Easily add controls</h4>
+        <div >
+            <pre><code class="hljs javascript">var controls = THREE.OrbitControls(camera, renderer.domElement);
+}</code></pre>
+        </div >
+        <div class="fragment" data-fragment-index="1">
+            <p>What about material?</p>
+            <pre><code class="hljs javascript">var material = new THREE.MeshBasicMaterial( { color: 0x3166bc,
+                                                wireframe: true } );
+}</code></pre>
+        </div>
+        <script src="assets/scripts/three_js_102.js"></script>
+        <script>
+            three_js_102();
+        </script>
+        </section>
+
+        <section >
+        <div id="three_js_103" style="margin-left:auto;margin-right:auto;">
+
+        </div>
+        <div>
+            <pre><code class="hljs javascript">vertex_shader = `
+varying vec2 vUv;
+void main()
+{
+  vUv = uv;
+  gl_Position = projectionMatrix*modelViewMatrix*vec4(position, 1.0);
+}`
+fragment_shader = `
+varying vec2 vUv;
+void main()
+{
+  gl_FragColor = vec4( vec3( vUv, 0. ), 1. );
+}`
+var material = new THREE.ShaderMaterial( {
+                    vertexShader: vertex_shader,
+                    fragmentShader: fragment_shader, wireframe: true});
+</code></pre>
+            <a href="https://www.clicktorelease.com/code/perlin/explosion.html" target="_blank">What can be achieved</a>
+        </div>
+        <script src="assets/scripts/three_js_103.js"></script>
+        <script>
+            three_js_103();
+        </script>
+        </section>
+
+
+        <section >
+        <h3> All you need is <strike>love</strike> three.js</h3>
+        <div class="fragment" data-fragment-index="1">
+            <ul>
+                <li>support for primitive geometries</li>
+                <li>available loaders for different formats</li>
+                <li>support for lights and shadows</li>
+                <li>support for textures</li>
+                <li>shader access !!!</li>
+            </ul>
+            </div>
+        <div class="fragment" data-fragment-index="2">
+            <h3>What it takes to create a 3D viewer?</h3>
+            </div>
+        </section>
+
+        <section >
+        <h4> Pseudocode for creating cool things</h4>
+        <img src="assets/img/how-to-draw-a-horse.jpg" width="35%"/>
+        </section>
+
+        <section >
+        <h4> Let us see some cool things!</h4>
+        </section>
+
+        <section >
+        <h4>Sketchfab</h4>
+        <div class="sketchfab-embed-wrapper"><iframe width="640" height="480" src="https://sketchfab.com/models/66b4d99c026343ce8774e8a3b521246d/embed" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
+
+            <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+                <a href="https://sketchfab.com/models/66b4d99c026343ce8774e8a3b521246d?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">&quot;The Nook&quot; - 2.5D Texturing</a>
+                by <a href="https://sketchfab.com/mattmcdaid?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">mattmcdaid</a>
+                on <a href="https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+            </p>
+        </div>
+
+        </section>
+
+
+
+        <section >
+        <h4>"Customizable shopping"</h4>
+        <iframe src="https://play-demos.s3.amazonaws.com/nop/publications/radio/index.html?splash=true" width="100%" height="400px"></iframe>
+
+        </section>
+
+        <section >
+        <h4>and some even more useful things</h4>
+        <table>
+            <tr style="height:100px">
+                <th style="width:30%"><img src="assets\img\amazon_shop.png"/></th>
+                <th style="width:30%"><img src="assets\img\realtor.png"/></th>
+                <th style="width:30%"><img src="assets\img\assembly.png"/></th>
+
+            </tr>
+            <tr>
+                <th valign="top"><a href="http://duchangyu.github.io/meetup-3d-on-web/3d-for-amazon/" target="_blank" style="font-size:70%">What Amazon could look like with 3D</a></th>
+                <th valign="top"><a href="http://duchangyu.github.io/meetup-3d-on-web/3d-for-pulte/" target="_blank" style="font-size:70%">How a realtor website could look with 3D</a></th>
+                <th valign="top"><a href="http://trial.dotdotty.com/#/viewer?id=561f5cc78a44b405403b257e" target="_blank" style="font-size:70%">How an assembly instruction could look with 3D</a></th>
+            </tr>
+
+        </table>
+        <!--<ul style="list-style-type: none;">-->
+            <!--<li>-->
+                <!---->
+                <!--<div style="margin-top: -4px;">-->
+                    <!--<div style="display:inline-block; width:30%; height:100px;">-->
+                        <!--<img src="assets\img\amazon_shop.png">-->
+
+                    <!--</div>-->
+                    <!--<div style="display:inline-block; width:60%; height:100px;margin-top: -4px;">What Amazon could look like?</div>-->
+                <!--</div>-->
+            <!--</li>-->
+        <!--</ul>-->
+
+        </section>
+
+        <section >
+        <h3>Thank you</h3>
+        <small><h4>by Denis Grigor / <a href="http://apprentice3d.github.io">denis.grigor@autodesk.com</a></h4></small>
+        </h4>
+        </section>
+
+    </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [{
+            src: 'lib/js/classList.js',
+            condition: function () {
+                return !document.body.classList;
+            }
+        }, {
+            src: 'plugin/markdown/showdown.js',
+            condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/markdown/markdown.js',
+            condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+        }, {
+            src: 'plugin/zoom-js/zoom.js',
+            async: true,
+            condition: function () {
+                return !!document.body.classList;
+            }
+        }, {
+            src: 'plugin/notes/notes.js',
+            async: true,
+            condition: function () {
+                return !!document.body.classList;
+            }
+        }]
+    });
+</script>
+
+</body>
+
+</html>
