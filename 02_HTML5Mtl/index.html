@@ -64,14 +64,16 @@
         <section data-background-iframe="" backgroundTransition:
         'slide'>
         <h1>What is 3D?</h1>
-        <div id="ascii_logo" style="margin-left:auto;margin-right:auto;">
+        <img src="./assets/img/zebra.jpg" style="width:55%;"/>
+        <!--<iframe src="https://threejs.org/examples/canvas_ascii_effect.html" style="width:50%; height:50%"></iframe>-->
+        <!--<div id="ascii_logo" style="margin-left:auto;margin-right:auto;">-->
 
-        </div>
-        <script src="assets/scripts/ascii_logo.js"></script>
+        <!--</div>-->
+        <!--<script src="assets/scripts/ascii_logo.js"></script>-->
 
-        <script>
-            temp = ascii_logo();
-        </script>
+        <!--<script>-->
+            <!--temp = ascii_logo();-->
+        <!--</script>-->
 
         </section>
 
@@ -95,10 +97,10 @@
         </div>
         Result of a a series of transformations
         <ul>
-            <li class="fragment">
+            <li>
                 from of an imagined 3D content
             </li>
-            <li class="fragment">
+            <li>
                 to a 2D array of pixels
             </li>
         </ul>
@@ -120,8 +122,10 @@
 
         <section data-background-iframe="" backgroundTransition: 'slide'>
         <div>
-            <h4>We could do that before?</h4>
-            <img src="./assets/img/zebra.jpg" style="width:55%;"/>
+            <h4>CPU vs GPU</h4>
+            <video controls poster="./assets/img/cpu_vs_gpu.png">
+                <source data-src="./assets/video/GPU_vs_CPU.mp4" type="video/mp4" />
+            </video>
         </div>
         </section>
 
@@ -131,34 +135,42 @@
             <img src="./assets/img/webgl_logo.jpg" style="width:45%; background:none; border:none; box-shadow:none;"/>
         </div>
         <ul>
-            <li class="fragment">
+            <li >
                 Meant for browsers
             </li>
-            <li class="fragment">
+            <li >
                 OpenGL ES2.0 port built into the &ltcanvas&gt DOM element
             </li>
 
         </ul>
         </section>
-        <section data-background-iframe="" backgroundTransition: 'slide'>
+        <!--<section data-background-iframe="" backgroundTransition: 'slide'>-->
 
-            <h4>Nicely <a href="http://webglreport.com/?v=1" target="_blank">supported </a> by (almost) all players.</h4>
-            <a href="http://caniuse.com/#feat=webgl" target="_blank"><img src="./assets/img/webgl_support.png" style="width:95%; background:none; border:none; box-shadow:none;"/></a>
+            <!--<h4>Nicely <a href="http://webglreport.com/?v=1" target="_blank">supported </a> by (almost) all players.</h4>-->
+            <!--<a href="http://caniuse.com/#feat=webgl" target="_blank"><img src="./assets/img/webgl_support.png" style="width:95%; background:none; border:none; box-shadow:none;"/></a>-->
 
-        </section>
+        <!--</section>-->
 
 
-        <section data-background-iframe="" backgroundTransition: 'slide'>
-            <h2><span class="fragment" data-fragment-index="6">WebGL <br />programmable</span> <br />graphics pipeline</h2>
+        <section data-transition="none">
+            <h2><span >WebGL <br />programmable</span> <br />graphics pipeline</h2>
             <span><img class="fragment" data-fragment-index="1" src="./assets/img/vertex-shader.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
-            <span><img class="fragment" data-fragment-index="2" src="./assets/img/primitive-assembly.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
-            <span><img class="fragment" data-fragment-index="3" src="./assets/img/rasterization.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
-            <span><img class="fragment" data-fragment-index="4" src="./assets/img/fragment-shader.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
-            <span><img class="fragment" data-fragment-index="5" src="./assets/img/frame-buffer.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
-            <span><img class="fragment" data-fragment-index="6" src="./assets/img/programmable.png" style="margin-top:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img class="fragment" data-fragment-index="1" src="./assets/img/primitive-assembly.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img class="fragment" data-fragment-index="1" src="./assets/img/rasterization.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img class="fragment" data-fragment-index="1" src="./assets/img/fragment-shader.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img class="fragment" data-fragment-index="1" src="./assets/img/frame-buffer.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img class="fragment" data-fragment-index="2" src="./assets/img/programmable.png" style="margin-top:0px;background:none; border:none; box-shadow:none;"/></span>
         </section>
 
-
+        <section data-transition="none">
+            <h2><span >WebGL <br />programmable</span> <br />graphics pipeline</h2>
+            <span><a href="https://www.shadertoy.com/view/Ms2SD1" target="_blank"><img src="./assets/img/vertex-shader-anim.gif" width="19%" style="margin-bottom:0px;background:none; box-shadow:none;"/></a></span>
+            <span><img src="./assets/img/primitive-assembly.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img src="./assets/img/rasterization.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><a href="http://pixelshaders.com/" target="_blank"><img src="./assets/img/fragment_shader.gif" width="19%" style="margin-bottom:0px;background:none; box-shadow:none;"/></a></span>
+            <span><img src="./assets/img/frame-buffer.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
+            <span><img src="./assets/img/programmable.png" style="margin-top:0px;background:none; border:none; box-shadow:none;"/></span>
+        </section>
 
 
 
@@ -276,19 +288,21 @@ gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 2);</code></pre>
              <script>
                 WebGLTriangle();
              </script>
-        <h4> Is it an overkill?</h4>
+        <!--<h4> Is it an overkill?</h4>-->
+
 
         </section>
 
-        <section >
-            <h4><span>Remeber the programmable</a></span> <br />graphics pipeline?</h4>
-            <span><a href="https://www.shadertoy.com/view/Ms2SD1" target="_blank"><img src="./assets/img/vertex-shader-anim.gif" width="19%" style="margin-bottom:0px;background:none; box-shadow:none;"/></a></span>
-            <span><img src="./assets/img/primitive-assembly.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
-            <span><img src="./assets/img/rasterization.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
-            <span><a href="http://pixelshaders.com/" target="_blank"><img src="./assets/img/fragment_shader.gif" width="19%" style="margin-bottom:0px;background:none; box-shadow:none;"/></a></span>
-            <span><img src="./assets/img/frame-buffer.png" width="19%" style="margin-bottom:0px;background:none; border:none; box-shadow:none;"/></span>
-            <span><img src="./assets/img/programmable.png" style="margin-top:0px;background:none; border:none; box-shadow:none;"/></span>
+        <section>
+            <img src="assets/img/blog-header-are-you-scared2.jpg"/>
+
+            <a href="http://webglfundamentals.org/" target="_blank">http://webglfundamentals.org/</a><br/>
+            <a href="https://www.khronos.org/developers/reference-cards" target="_blank">Khronos Group</a><br/>
+            <a href="http://webglreport.com/?v=1" target="_blank">WebGL report</a><br/>
+            <a href="https://github.com/evanw/webgl-water" target="_blank">Super cool example</a>
         </section>
+
+
 
 
 
@@ -492,13 +506,38 @@ var material = new THREE.ShaderMaterial( {
 
         </section>
 
-
-
         <section >
-        <h4>"Customizable shopping"</h4>
-        <iframe src="https://play-demos.s3.amazonaws.com/nop/publications/radio/index.html?splash=true" width="100%" height="400px"></iframe>
+            <h4>"Customizable shopping"</h4>
+            <iframe src="https://play-demos.s3.amazonaws.com/nop/publications/radio/index.html?splash=true" width="100%" height="400px"></iframe>
 
         </section>
+
+        <section>
+            <h4>CL3VER</h4>
+            <iframe src="http://3d.cl3ver.com/lkSOt?tryitlocation=0" width="100%" height="400px"></iframe>
+        </section>
+
+
+        <section>
+            <div>
+                <h4>Augumented shopping</h4>
+                <video controls >
+                    <source data-src="./assets/video/Augument.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </section>
+
+
+        <section>
+            <div>
+                <h4>Holo-review</h4>
+                <video controls >
+                    <source data-src="./assets/video/HoloReview.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </section>
+
+
 
         <section >
         <h4>and some even more useful things</h4>
@@ -533,8 +572,11 @@ var material = new THREE.ShaderMaterial( {
 
         <section >
         <h3>Thank you</h3>
-        <small><h4>by Denis Grigor / <a href="http://apprentice3d.github.io">denis.grigor@autodesk.com</a></h4></small>
-        </h4>
+        <small><h4>by Denis Grigor / <a href="http://apprentice3d.github.io">denis.grigor@autodesk.com</a></h4>
+            <br/><i></i>
+        </small>
+
+
         </section>
 
     </div>
