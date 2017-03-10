@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8">
@@ -173,6 +173,13 @@
         </div>
         </section>
 
+    <section data-background-iframe="" backgroundTransition: 'slide'>
+    <h2>Why speed is so important?</h2>
+    <a href="./assets/references/02.UdemyCode/z_Ciainik.html" target="_blank">Interactive vs Realtime graphics</a><br/>
+</section>
+
+
+
         <section data-background-iframe="" backgroundTransition: 'slide'>
         <div>
             <h4>GPU for the Web.</h4>
@@ -187,6 +194,9 @@
             </li>
 
         </ul>
+    <br><br>
+    <a href="http://webglreport.com/?v=1" target="_blank">WebGL report</a><br/>
+    <a href="http://caniuse.com/#search=webgl2" target="_blank">WebGL2 support</a><br/>
         </section>
         <!--<section data-background-iframe="" backgroundTransition: 'slide'>-->
 
@@ -342,8 +352,7 @@ gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 2);</code></pre>
 
             <a href="http://webglfundamentals.org/" target="_blank">http://webglfundamentals.org/</a><br/>
             <a href="https://www.khronos.org/developers/reference-cards" target="_blank">Khronos Group</a><br/>
-            <a href="http://webglreport.com/?v=1" target="_blank">WebGL report</a><br/>
-            <a href="http://caniuse.com/#search=webgl2" target="_blank">WebGL2 support</a><br/>
+
 
 
 
@@ -518,7 +527,7 @@ var material = new THREE.ShaderMaterial( {
 
 
         <section >
-        <h3> All you need is <strike>love</strike> three.js</h3>
+            <h3> All you need is <strike>love</strike> <a href ="https://threejs.org/" target="_blank">three.js</a></h3>
         <div class="fragment" data-fragment-index="1">
             <ul>
                 <li>support for primitive geometries</li>
@@ -539,6 +548,33 @@ var material = new THREE.ShaderMaterial( {
             <small><a href="https://www.udacity.com/course/interactive-3d-graphics--cs291" target="_blank">Interactive 3D Graphics Course</a></small>
 
         </section>
+    <section >
+        <section>
+            <h3>What other things to take care of?</h3>
+            <h6> at least ...</h6>
+        </section>
+
+        <section>
+            <h4>Navigation</h4>
+            <a href="http://viewer.autodesk.io/node/gallery/#/viewer?id=54464d43af600b5c0a87254c" target="_blank"><img src="assets/img/navigation.png" width="100%"/></a>
+        </section>
+
+        <section>
+            <h4>Lights and materials</h4>
+            <img src="assets/img/materials.png" width="80%"/>
+        </section>
+
+        <section>
+            <h4>Geometry representation and formats</h4>
+            <img src="assets/img/mesh_vs_Brep.png" width="100%"/>
+        </section>
+
+        <section>
+            <h4>Metadata</h4>
+            <img src="assets/img/metadata.png" width="100%"/>
+        </section>
+
+    </section>
 
         <section >
 
@@ -574,32 +610,20 @@ var material = new THREE.ShaderMaterial( {
             <h4>PlayCanvas</h4>
             <a href="https://playcanv.as/p/RqJJ9oU9/" target="_blank">Cool BMW i8 example</a>
 
-
         </section>
 
-    <section>
-        <section>
-        <h4>Other "collateral" applications ...</h4>
-        </section>
-        <section>
-            <div>
-                <h4>Augumented shopping</h4>
-                <video controls >
-                    <source data-src="./assets/video/Augument.mp4" type="video/mp4" />
-                </video>
-            </div>
-        </section>
 
 
         <section>
-            <div>
-                <h4>Holo-review</h4>
-                <video controls >
-                    <source data-src="./assets/video/HoloReview.mp4" type="video/mp4" />
-                </video>
-            </div>
+            <a href="https://developer.autodesk.com/" target="_blank"><img src="assets/img/forge_link.png" width="100%"/></a>
+            <ul>
+                <li><a href="http://viewer.autodesk.io/node/gallery/#/viewer?id=54464d43af600b5c0a87254c" target="_blank">Building example</a></li>
+                <li><a href="http://viewer.autodesk.io/node/gallery/#/viewer?id=573fb1debee653280b9ad8ac" target="_blank">Equipment example</a></li>
+                <li><a href="https://a360.autodesk.com/">We use it! </a></li>
+            </ul>
         </section>
-    </section>
+
+
 
 
     <section >
@@ -645,15 +669,37 @@ var material = new THREE.ShaderMaterial( {
 
     </section>
 
+    <section>
+        <section>
+            <h4>Other "collateral" applications ...</h4>
+        </section>
+        <section>
+            <div>
+                <h4>Augumented shopping</h4>
+                <video controls >
+                    <source data-src="./assets/video/Augument.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </section>
+
+
+        <section>
+            <div>
+                <h4>Holo-review</h4>
+                <video controls >
+                    <source data-src="./assets/video/HoloReview.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </section>
+    </section>
+
 
 
         <section >
         <h3>Thank you</h3>
-        <small><a href="http://apprentice3d.github.io">denis.grigor@autodesk.com</a>
-        </small>
             <br>
             <small>
-                <h6>Don't forget to check </br><a href="https://developer.autodesk.com/">https://developer.autodesk.com/</a></h6>
+                <h6>Check </br><a href="https://developer.autodesk.com/">https://developer.autodesk.com/</a></h6>
                 <small> and our Blog at <a href="https://forge.autodesk.com/blog">https://forge.autodesk.com/blog</a></small>
             <br><a href="https://developer.autodesk.com/"><img src="https://forge.autodesk.com/sites/all/themes/site/consumer_subtheme_forge/logo_forge.png" style="border:none;box-shadow:none"/></a>
             </small>
