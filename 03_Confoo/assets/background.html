@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <title>My background</title>
+    <script src="../js/p5.min.js"></script>
+</head>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+    #myCanvas {
+        height: 98%;
+        width: 99%;
+        margin: 3;
+        padding: 0;
+        border: 1px solid black;
+    }
+</style>
+
+
+
+<body>
+    <div id="myCanvas">
+
+    </div>
+    <script>
+        function Middle() {
+            this.x;
+            this.y;
+        }
+
+
+        var density = 40;
+        var middle;
+        var width;
+        var height;
+        var canvasDiv;
+        var gradient;
+        var position;
+
+        function setup() {
+
+            canvasDiv = document.getElementById("myCanvas");
+            width = canvasDiv.clientWidth;
+            height = canvasDiv.clientHeight;
+            canvas = createCanvas(width+16, height);
+            canvas.parent(canvasDiv);
+            background(255);
+
+            middle = new Middle();
+            middle.x = width / 2;
+            middle.y = height * 3 / 4;
+
+            gradient = loadImage("./img/gradient.png");
+            position = 0;
+
+            update();
+        }
+
+        function update() {
+            background(255);
+            stroke(200);
+            for (var i = -width; i < 2*width; i = i + density) {
+                line(i, height, middle.x, middle.y);
+            }
+            for (var j = height; j > middle.y; j -= density/4) {
+                line(0, j, width, j);
+            }
+
+
+            ++position;
+        }
+
+        function reviewCanavasSize() {
+            width = canvasDiv.innerWidth;
+            height = canvasDiv.innerHeight;
+            resizeCanvas(width+10, height);
+        }
+
+        function draw() {
+            image(gradient, 0,middle.y, width, middle.y/6);
+
+        }
+
+
+            window.onresize = function(event) {
+                width = canvasDiv.clientWidth;
+                height = canvasDiv.clientHeight;
+                middle.x = width / 2;
+                middle.y = height * 2 / 3;
+                resizeCanvas(width, height);
+                update();
+            }
+    </script>
+</body>
+
+</html>
